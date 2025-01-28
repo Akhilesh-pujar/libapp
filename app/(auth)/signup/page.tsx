@@ -1,25 +1,22 @@
-"use client"
-import AuthForm from '@/components/AuthForm'
-import React from 'react'
-import { signUpSchema } from '@/lib/validations'
+"use client";
 
-const page = () => {
-  return (
-   <AuthForm
-   type="SIGN_UP"
-   schema={signUpSchema}
-   defaultValues={
-    {
-      email:"",
-      password:"",
-      fullName:"",
-      universityId:8,
-      universityCard:""
-    }
-   }
-   onSubmit={()=>{}}
-   />
-  )
-}
+import AuthForm from "@/components/AuthForm";
+import { signUpSchema } from "@/lib/validations";
+import { signUp } from "@/lib/actions/auth";
 
-export default page
+const Page = () => (
+  <AuthForm
+    type="SIGN_UP"
+    schema={signUpSchema}
+    defaultValues={{
+      email: "",
+      password: "",
+      fullName: "",
+      universityId: "",
+      universityCard: "",
+    }}
+    onSubmit={signUp}
+  />
+);
+
+export default Page;
